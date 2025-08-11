@@ -90,10 +90,3 @@ This project aims to develop a web-based application that allows users to browse
 
 *Written by Magnus Eadie, formatted by Gemini 2.5 Flash.*
 
-
-
-# UI Wireframing
-
-
-# Designing Algorithms 
-
