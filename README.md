@@ -90,20 +90,26 @@ This project aims to develop a web-based application that allows users to browse
 
 *Written by Magnus Eadie, formatted by Gemini 2.5 Flash.*
 
-# UI Wireframing 
+# UI Wireframing & Design
 
-## First UI Wireframing
+## First Wireframe
 
-### Homepage
+### Homepage Wireframe
 ![Homepage](<Screen Shot 2025-08-12 at 10.03.43.png>)
 
-### Browse Resteraunts
+### Browse Resteraunts Wireframe
 ![Browse Resteraunt Page](<Screen Shot 2025-08-12 at 10.03.51.png>)
 
-### Manage Bookings
+### Manage Bookings Wireframe
 ![Manage Bookings Page](<Screen Shot 2025-08-12 at 10.04.03.png>)
 
-## Alternate UI Design 
+### Colour Pallete 
+![Colour Pallete 1](<Screen Shot 2025-08-12 at 10.16.17.png>)
+
+### Typography 
+In my original TableFinder wireframe I used a conservative 14px base font size which prioritizes functional clarity to help users to easily scan restaurant information, booking details, and navigation elements across the darker color scheme.
+
+## Alternate Wireframe
 
 ### Homepage
 ![Homepage](<Screen Shot 2025-08-12 at 10.02.56.png>)
@@ -113,4 +119,11 @@ This project aims to develop a web-based application that allows users to browse
 
 ### Manage Bookings
 ![Manage Bookings](<Screen Shot 2025-08-12 at 10.03.15.png>)
+
+### Colour Pallete
+![Colour Pallete 2](<Screen Shot 2025-08-12 at 10.13.53.png>)
+
+### Typography 
+
+In my second TableFinder wireframe I went for a more experimental/alternate design which used bold typographic styles to match vibrant coral/teal colour pallete. I used font-black headings mixed with italics and oversized text to create personality. 
 
