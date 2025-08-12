@@ -124,5 +124,5 @@ In my original TableFinder wireframe I used a conservative 14px base font size w
 ![Colour Pallete 2](<Screen Shot 2025-08-12 at 10.13.53.png>)
 
 ### Typography
-In my second TableFinder wireframe I went for a more experimental/alternate design which used bold typographic styles to match vibrant coral/teal colour pallete. I used font-black headings mixed with italics and oversized text to create personality. 
+In my second TableFinder wireframe I went for a more experimental/alternate design which used bold typographic styles to match vibrant coral/teal colour pallete. I also combined font-black headings, with italics and oversized text to create personality. 
 
