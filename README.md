@@ -90,3 +90,27 @@ This project aims to develop a web-based application that allows users to browse
 
 *Written by Magnus Eadie, formatted by Gemini 2.5 Flash.*
 
+# UI Wireframing 
+
+## First UI Wireframing
+
+### Homepage
+![Homepage](<Screen Shot 2025-08-12 at 10.03.43.png>)
+
+### Browse Resteraunts
+![Browse Resteraunt Page](<Screen Shot 2025-08-12 at 10.03.51.png>)
+
+### Manage Bookings
+![Manage Bookings Page](<Screen Shot 2025-08-12 at 10.04.03.png>)
+
+## Alternate UI Design 
+
+### Homepage
+![Homepage](<Screen Shot 2025-08-12 at 10.02.56.png>)
+
+### Browse Resteraunts
+![Browse Resteraunts](<Screen Shot 2025-08-12 at 10.03.03.png>)
+
+### Manage Bookings
+![Manage Bookings](<Screen Shot 2025-08-12 at 10.03.15.png>)
+
