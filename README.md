@@ -126,3 +126,40 @@ In my original TableFinder wireframe I used a conservative 14px base font size w
 ### Typography
 In my second TableFinder wireframe I went for a more experimental/alternate design which used bold typographic styles to match vibrant coral/teal colour pallete. I also combined font-black headings, with italics and oversized text to create personality. 
 
+# Algorithm & Test Cases
+
+## Algorithm
+
+## Test Cases
+
+### Test Case 1
+
+**Test Case ID:** TC001
+**Test Case Name:** Successful Login Test Case
+**Preconditions:** User must have a registered account.
+**Test Steps:**
+1. Open the homepage.
+2. Click "login" icon.
+3. Enter user credentials.
+4. Click "login" button
+**Expected Result:** The user is directed to the homepage.
+**Actual Result:** To be filled after execution.
+**Pass/Fail:** To be filled after execution.
+**Priority:** High
+
+### Test Case 2
+
+**Test Case ID:** TC002
+**Test Case Name:** Unsuccessful Login Test Case (No Password Reset)
+**Preconditions:** User must not input a registered account.
+**Test Steps:**
+1. Open the homepage.
+2. Click "login" icon.
+3. Enter user credentials.
+4. Click "login" button
+5. Click "no" in response to reset password option.
+**Expected Result:** The user is re-directed  to the homepage.
+**Actual Result:** To be filled after execution.
+**Pass/Fail:** To be filled after execution.
+**Priority:** High
+
