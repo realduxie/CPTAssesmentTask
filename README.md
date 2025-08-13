@@ -128,7 +128,8 @@ In my second TableFinder wireframe I went for a more experimental/alternate desi
 
 # Algorithm & Test Cases
 
-## Algorithm
+## Login Algorithm
+![Login Algorithm](<Screen Shot 2025-08-13 at 13.44.30.png>)
 
 ## Test Cases
 
@@ -138,11 +139,11 @@ In my second TableFinder wireframe I went for a more experimental/alternate desi
 **Test Case Name:** Successful Login Test Case
 **Preconditions:** User must have a registered account.
 **Test Steps:**
-1. Open the homepage.
+1. Open the login page.
 2. Click "login" icon.
 3. Enter user credentials.
-4. Click "login" button
-**Expected Result:** The user is directed to the homepage.
+4. Click "login" button.
+**Expected Result:** The user is directed to the homepage, logged in.
 **Actual Result:** To be filled after execution.
 **Pass/Fail:** To be filled after execution.
 **Priority:** High
@@ -151,9 +152,9 @@ In my second TableFinder wireframe I went for a more experimental/alternate desi
 
 **Test Case ID:** TC002
 **Test Case Name:** Unsuccessful Login Test Case (No Password Reset)
-**Preconditions:** User must not input a registered account.
+**Preconditions:** User must input a invalid account details.
 **Test Steps:**
-1. Open the homepage.
+1. Open the login page.
 2. Click "login" icon.
 3. Enter user credentials.
 4. Click "login" button
