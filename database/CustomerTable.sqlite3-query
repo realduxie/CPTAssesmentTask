@@ -1,0 +1,44 @@
+-- database: ./data_source.db
+
+-- DROP TABLE Customer;
+-- CREATE TABLE Customer(User_Id INTEGER NOT NULL PRIMARY KEY,Username TEXT NOT NULL,First_Name TEXT NOT NULL, Last_Name TEXT NOT NULL, email TEXT NOT NULL,Customer_Level TEXT NOT NULL,Active_Reservations INTEGER NOT NULL);
+
+-- INSERT INTO Customer(User_Id,Username,First_Name,Last_Name,email,Customer_Level,Active_Reservations) VALUES (0001,"JaneCitizen123","Jane","Citizen","janecitizen123@gmail.com","Bronze", 0);
+-- INSERT INTO Customer(User_Id,Username,First_Name,Last_Name,email,Customer_Level,Active_Reservations) VALUES (0002,"Alex_L_91","Alex","Lee","alex.lee@example.com","Silver", 1);
+-- INSERT INTO Customer(User_Id,Username,First_Name,Last_Name,email,Customer_Level,Active_Reservations) VALUES (0003,"ChefTony","Tony","Wang","tony.w@example.com","Gold", 2);
+-- INSERT INTO Customer(User_Id,Username,First_Name,Last_Name,email,Customer_Level,Active_Reservations) VALUES (0004,"S.Patel_88","Sonia","Patel","s.patel@example.com","Bronze", 0);
+-- INSERT INTO Customer(User_Id,Username,First_Name,Last_Name,email,Customer_Level,Active_Reservations) VALUES (0005,"Maxine_K","Maxine","Kaur","maxine.k@example.com","Diamond", 4);
+-- INSERT INTO Customer(User_Id,Username,First_Name,Last_Name,email,Customer_Level,Active_Reservations) VALUES (0006,"D.Miller_22","David","Miller","david.miller@example.com","Silver", 1);
+-- INSERT INTO Customer(User_Id,Username,First_Name,Last_Name,email,Customer_Level,Active_Reservations) VALUES (0007,"TheFoodie","Maria","Garcia","maria.g@example.com","Gold", 3);
+-- INSERT INTO Customer(User_Id,Username,First_Name,Last_Name,email,Customer_Level,Active_Reservations) VALUES (0008,"K_Nguyen","Kevin","Nguyen","k.nguyen@example.com","Bronze", 0);
+-- INSERT INTO Customer(User_Id,Username,First_Name,Last_Name,email,Customer_Level,Active_Reservations) VALUES (0009,"Sarah_J","Sarah","Jones","sarah.jones@example.com","Diamond", 5);
+-- INSERT INTO Customer(User_Id,Username,First_Name,Last_Name,email,Customer_Level,Active_Reservations) VALUES (0010,"T.Evans","Tom","Evans","tom.evans@example.com","Bronze", 0);
+-- INSERT INTO Customer(User_Id,Username,First_Name,Last_Name,email,Customer_Level,Active_Reservations) VALUES (0011,"LisaChen","Lisa","Chen","lisa.chen@example.com","Silver", 2);
+
+-- CREATE TABLE Restaurant_Category (Category_Id INTEGER PRIMARY KEY,Category_Name TEXT NOT NULL,Category_Description TEXT);
+
+-- INSERT INTO Restaurant_Category (Category_Id, Category_Name, Category_Description) VALUES (1, 'Italian', 'Traditional and modern Italian cuisine, including pasta, pizza, and regional specialties.');
+-- INSERT INTO Restaurant_Category (Category_Id, Category_Name, Category_Description) VALUES (2, 'Mexican', 'Authentic Mexican dishes such as tacos, burritos, and quesadillas.');
+-- INSERT INTO Restaurant_Category (Category_Id, Category_Name, Category_Description) VALUES (3, 'Japanese', 'A wide variety of Japanese food, from sushi and ramen to teppanyaki.');
+-- INSERT INTO Restaurant_Category (Category_Id, Category_Name, Category_Description) VALUES (4, 'American', 'Classic American diner food, burgers, and comfort meals.');
+-- INSERT INTO Restaurant_Category (Category_Id, Category_Name, Category_Description) VALUES (5, 'Indian', 'Authentic Indian curries, tandoori, and regional specialties.');
+-- INSERT INTO Restaurant_Category (Category_Id, Category_Name, Category_Description) VALUES (6, 'Cafe', 'Coffee, pastries, sandwiches, and light meals served in a casual setting.');
+-- INSERT INTO Restaurant_Category (Category_Id, Category_Name, Category_Description) VALUES (7, 'Seafood', 'Fresh seafood dishes, including grilled fish, shrimp, and shellfish.');
+-- INSERT INTO Restaurant_Category (Category_Id, Category_Name, Category_Description) VALUES (8, 'Noodle', 'Restaurants specializing in a variety of noodle dishes from different cuisines.');
+
+-- CREATE TABLE Restaurant (Restaurant_Id INTEGER NOT NULL PRIMARY KEY,Restaurant_Name TEXT NOT NULL, Address TEXT NOT NULL,Phone_Number INTEGER NOT NULL,email TEXT NOT NULL,Website TEXT NOT NULL,Capacity INTEGER NOT NULL,Opening_Time TIME NOT NULL,Closing_Time TIME NOT NULL,Category_Id INTEGER NOT NULL,     FOREIGN KEY (Category_Id) REFERENCES Restaurant_Category(Category_Id));
+-- INSERT INTO Restaurant(Restaurant_Id, Restaurant_Name, Address, Phone_Number, email, Website, Capacity, Opening_Time, Closing_Time, Category_Id) VALUES (101,"The Italian Spot","123 Main Street, Cityville","555-0101","info@italian-spot.com","www.italian-spot.com", 60, '17:00:00', '22:00:00', 1);
+-- INSERT INTO Restaurant(Restaurant_Id, Restaurant_Name, Address, Phone_Number, email, Website, Capacity, Opening_Time, Closing_Time, Category_Id) VALUES (102,"Taco Fiesta","456 Market Ave, Townsville","555-0102","contact@tacofiesta.com","www.tacofiesta.com", 45, '11:00:00', '21:00:00', 2);
+-- INSERT INTO Restaurant(Restaurant_Id, Restaurant_Name, Address, Phone_Number, email, Website, Capacity, Opening_Time, Closing_Time, Category_Id) VALUES (103,"Sushi Zen","789 Ocean Road, Villageton","555-0103","sushi.zen@email.com","www.sushizen.com", 30, '18:00:00', '23:00:00', 3);
+-- INSERT INTO Restaurant(Restaurant_Id, Restaurant_Name, Address, Phone_Number, email, Website, Capacity, Opening_Time, Closing_Time, Category_Id) VALUES (104,"The Burger Joint","25 Elm Street, Cityville","555-0104","burger.joint@email.com","www.the-burger-joint.com", 80, '10:00:00', '21:00:00', 4);
+-- INSERT INTO Restaurant(Restaurant_Id, Restaurant_Name, Address, Phone_Number, email, Website, Capacity, Opening_Time, Closing_Time, Category_Id) VALUES (105,"Curry Corner","33 Oak Ave, Townsville","555-0105","contact@curry-corner.com","www.curry-corner.com", 50, '12:00:00', '22:30:00', 5);
+-- INSERT INTO Restaurant(Restaurant_Id, Restaurant_Name, Address, Phone_Number, email, Website, Capacity, Opening_Time, Closing_Time, Category_Id) VALUES (106,"Green Leaf Cafe","50 Maple Lane, Villageton","555-0106","hello@greenleafcafe.com","www.greenleafcafe.com", 25, '08:00:00', '16:00:00', 6);
+-- INSERT INTO Restaurant(Restaurant_Id, Restaurant_Name, Address, Phone_Number, email, Website, Capacity, Opening_Time, Closing_Time, Category_Id) VALUES (107,"Pizza Palace","99 Cherry Road, Cityville","555-0107","pizzapalace@email.com","www.pizzapalace.com", 70, '16:00:00', '23:00:00', 1);
+-- INSERT INTO Restaurant(Restaurant_Id, Restaurant_Name, Address, Phone_Number, email, Website, Capacity, Opening_Time, Closing_Time, Category_Id) VALUES (108,"El Fuego Grill","87 Pine Street, Townsville","555-0108","grill@elfuego.com","www.elfuegogrill.com", 40, '17:30:00', '22:00:00', 2);
+-- INSERT INTO Restaurant(Restaurant_Id, Restaurant_Name, Address, Phone_Number, email, Website, Capacity, Opening_Time, Closing_Time, Category_Id) VALUES (109,"Ramen House","15 Cedar Way, Villageton","555-0109","ramenhouse@email.com","www.ramenhouse.com", 20, '11:30:00', '20:00:00', 3);
+-- INSERT INTO Restaurant(Restaurant_Id, Restaurant_Name, Address, Phone_Number, email, Website, Capacity, Opening_Time, Closing_Time, Category_Id) VALUES (110,"The Steakhouse","42 Elm Street, Cityville","555-0110","contact@thesteakhouse.com","www.the-steakhouse.com", 90, '18:00:00', '23:00:00', 4);
+-- INSERT INTO Restaurant(Restaurant_Id, Restaurant_Name, Address, Phone_Number, email, Website, Capacity, Opening_Time, Closing_Time, Category_Id) VALUES (111,"Bombay Bites","68 Oak Street, Townsville","555-0111","bombaybites@email.com","www.bombaybites.com", 65, '12:00:00', '22:00:00', 5);
+-- INSERT INTO Restaurant(Restaurant_Id, Restaurant_Name, Address, Phone_Number, email, Website, Capacity, Opening_Time, Closing_Time, Category_Id) VALUES (112,"Ocean's Catch Seafood","91 Pine Street, Villageton","555-0112","seafood@oceanscatch.com","www.oceanscatch.com", 55, '17:00:00', '22:00:00', 7);
+-- INSERT INTO Restaurant(Restaurant_Id, Restaurant_Name, Address, Phone_Number, email, Website, Capacity, Opening_Time, Closing_Time, Category_Id) VALUES (113,"The Noodle Bar","10 Main Street, Cityville","555-0113","info@noodlebar.com","www.thenoodlebar.com", 35, '11:00:00', '21:00:00', 8);
+
+ 
