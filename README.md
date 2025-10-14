@@ -112,16 +112,16 @@ In my original TableFinder wireframe I used a conservative 14px base font size w
 ## Alternate Wireframe
 
 ### Homepage
-![Homepage](<ScreensShots/Screen Shot 2025-08-12 at 10.02.56.png>)
+![Homepage](<ScreenShots/Screen Shot 2025-08-12 at 10.02.56.png>)
 
 ### Browse Resteraunts
-![Browse Resteraunts](<ScreensShots/Screen Shot 2025-08-12 at 10.03.03.png>)
+![Browse Resteraunts](<ScreenShots/Screen Shot 2025-08-12 at 10.03.03.png>)
 
 ### Manage Bookings
-![Manage Bookings](<ScreensShots/Screen Shot 2025-08-12 at 10.03.15.png>)
+![Manage Bookings](<ScreenShots/Screen Shot 2025-08-12 at 10.03.15.png>)
 
 ### Colour Pallete
-![Colour Pallete 2](<ScreensShots/Screen Shot 2025-08-12 at 10.13.53.png>)
+![Colour Pallete 2](<ScreenShots/Screen Shot 2025-08-12 at 10.13.53.png>)
 
 ### Typography
 In my second TableFinder wireframe I went for a more experimental/alternate design which used bold typographic styles to match vibrant coral/teal colour pallete. I also combined font-black headings, with italics and oversized text to create personality. 
