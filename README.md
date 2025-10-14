@@ -163,3 +163,34 @@ In my second TableFinder wireframe I went for a more experimental/alternate desi
 **Actual Result:** To be filled after execution.
 **Pass/Fail:** To be filled after execution.
 **Priority:** High
+
+# Logbook Notes
+
+## Week 5 
+- Set up the project folder structure and installed Flask and required dependencies.  
+- Created the SQLite database and defined tables for customers, restaurants, and categories.  
+- Added initial entries to the database and tested queries using SQLite editor.  
+
+## Week 6 
+- Connected Flask backend to the database and retrieved data for testing.  
+- Implemented basic Jinja2 template layout and included navigation menu.  
+- Designed and optimized logo and favicon images for the site.  
+
+## Week 7 
+- Styled main page and navigation using CSS and Google Fonts.  
+- Created card layouts for restaurant listings and tested grid display.  
+- Worked on linking pages together: home, browse, booking, and login.  
+
+## Week 8
+- Added additional CSS styling and responsive layout improvements.  
+- Started adding restaurant category filters on the browse page.  
+
+## Week 9
+- Began adding interactivity using JavaScript for booking form validation.  
+- Connected booking form inputs to backend to store reservations in database.  
+- Tested form submissions and updated confirmation messages for users.  
+
+## Week 10 
+- Worked on login page functionality and authentication logic.  
+- Integrated user login with customer data to display personalized bookings.  
+- Implemented error handling and improved user feedback on failed actions.

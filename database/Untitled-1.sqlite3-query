@@ -1,1 +1,52 @@
+-- database: /Users/magnus/CPT_ASSESMENT_TASK_3_WEBSITE copy/database/data_source.db
+
+-- CREATE TABLE IF NOT EXISTS customer (
+--     User_Id INTEGER PRIMARY KEY AUTOINCREMENT,
+--     User_name TEXT NOT NULL,
+--     First_Name TEXT,
+--     Last_Name TEXT,
+--     Email TEXT,
+--     Customer_Level TEXT,
+--     Active_Reservations INTEGER
+-- );
+
+-- CREATE TABLE IF NOT EXISTS restaurant_category (
+--     Category_Id INTEGER PRIMARY KEY AUTOINCREMENT,
+--     Category_Name TEXT NOT NULL,
+--     Category_Description TEXT
+-- );
+
+-- CREATE TABLE IF NOT EXISTS restaurant (
+--     Restaurant_Id INTEGER PRIMARY KEY AUTOINCREMENT,
+--     Restaurant_Name TEXT NOT NULL,
+--     Address TEXT,
+--     Phone_Number TEXT,
+--     Email TEXT,
+--     Website TEXT,
+--     Capacity INTEGER,
+--     Opening_Time TEXT,
+--     Closing_Time TEXT,
+--     Category_Id INTEGER,
+--     FOREIGN KEY (Category_Id) REFERENCES restaurant_category(Category_Id)
+-- );
+
+-- CREATE TABLE IF NOT EXISTS bookings (
+--     Booking_Id INTEGER PRIMARY KEY AUTOINCREMENT,
+--     Name TEXT,
+--     Email TEXT,
+--     Restaurant_Id INTEGER,
+--     Date TEXT,
+--     Time TEXT,
+--     Guests INTEGER,
+--     Special_Requests TEXT,
+--     FOREIGN KEY (Restaurant_Id) REFERENCES restaurant(Restaurant_Id)
+-- );
+
+-- DROP TABLE customer:
+
+-- DROP TABLE restaurant;
+
+-- DROP TABLE restaurant_category;
+
+-- DROP TABLE extension;
 

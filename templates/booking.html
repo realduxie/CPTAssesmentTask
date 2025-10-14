@@ -1,0 +1,193 @@
+{% extends 'layout.html' %} {% block title %}Make a Booking - Table Finder{%
+endblock %} {% block content %}
+<!-- Page Header -->
+<div class="page-header">
+  <h1>Make a <span class="accent">Booking</span></h1>
+  <p>Fill out the form below to reserve your table</p>
+</div>
+
+<!-- Booking Form Container -->
+<div class="form-container">
+  <!-- Form submits to /booking route with POST method -->
+  <form method="POST" action="{{ url_for('booking') }}" class="booking-form">
+    <!-- Contact Information Section -->
+    <div>
+      <h3
+        style="
+          font-size: 1.5rem;
+          font-weight: 900;
+          color: #2c3e50;
+          margin-bottom: 1.5rem;
+        "
+      >
+        📝 Contact Information
+      </h3>
+
+      <div class="form-row">
+        <!-- Name input -->
+        <div class="form-group">
+          <label for="name">Your Name *</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            placeholder="Enter your full name"
+          />
+        </div>
+
+        <!-- Email input -->
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="your.email@example.com"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Booking Details Section -->
+    <div>
+      <h3
+        style="
+          font-size: 1.5rem;
+          font-weight: 900;
+          color: #2c3e50;
+          margin-bottom: 1.5rem;
+        "
+      >
+        🍽️ Booking Details
+      </h3>
+
+      <!-- Restaurant dropdown -->
+      <div class="form-group">
+        <label for="restaurant_id">Select Restaurant *</label>
+        <select id="restaurant_id" name="restaurant_id" required>
+          <option value="">-- Choose a restaurant --</option>
+          <!-- Loop through restaurants to create dropdown options -->
+          {% for restaurant in restaurants %}
+          <option value="{{ restaurant.Restaurant_Id }}">
+            {{ restaurant.Restaurant_Name }} {% if restaurant.Category_Name %}
+            ({{ restaurant.Category_Name }}) {% endif %}
+          </option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="form-row">
+        <!-- Date input -->
+        <div class="form-group">
+          <label for="date">Booking Date *</label>
+          <input type="date" id="date" name="date" required />
+        </div>
+
+        <!-- Time input -->
+        <div class="form-group">
+          <label for="time">Booking Time *</label>
+          <input type="time" id="time" name="time" required />
+        </div>
+
+        <!-- Number of guests -->
+        <div class="form-group">
+          <label for="guests">Number of Guests *</label>
+          <input
+            type="number"
+            id="guests"
+            name="guests"
+            min="1"
+            max="20"
+            required
+            placeholder="How many people?"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Special Requests Section -->
+    <div>
+      <h3
+        style="
+          font-size: 1.5rem;
+          font-weight: 900;
+          color: #2c3e50;
+          margin-bottom: 1.5rem;
+        "
+      >
+        💬 Special Requests
+      </h3>
+
+      <!-- Special requests (optional) -->
+      <div class="form-group">
+        <label for="special_requests">Special Requests (Optional)</label>
+        <textarea
+          id="special_requests"
+          name="special_requests"
+          placeholder="Any dietary requirements, accessibility needs, or special occasions? (e.g., birthday celebration, window seat preference, allergies)"
+        ></textarea>
+      </div>
+    </div>
+
+    <!-- Terms and Conditions -->
+    <div
+      style="
+        display: flex;
+        align-items: start;
+        gap: 1rem;
+        padding: 1.25rem;
+        background: rgba(78, 205, 196, 0.1);
+        border-radius: 0.75rem;
+        border-left: 4px solid #4ecdc4;
+      "
+    >
+      <input
+        type="checkbox"
+        id="terms"
+        required
+        style="
+          width: 1.25rem;
+          height: 1.25rem;
+          margin-top: 0.25rem;
+          cursor: pointer;
+          accent-color: #4ecdc4;
+        "
+      />
+      <label
+        for="terms"
+        style="font-size: 0.95rem; color: #2c3e50; cursor: pointer"
+      >
+        I agree to the cancellation policy and understand that reservations may
+        be held for 15 minutes past the reservation time.
+      </label>
+    </div>
+
+    <!-- Submit button -->
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary btn-large">
+        ✨ CONFIRM RESERVATION
+      </button>
+    </div>
+
+    <!-- Alternative Actions -->
+    <div
+      style="
+        display: flex;
+        gap: 1rem;
+        padding-top: 1.5rem;
+        border-top: 2px solid #f3f4f6;
+      "
+    >
+      <a
+        href="{{ url_for('browse') }}"
+        class="btn btn-secondary"
+        style="flex: 1; text-align: center"
+      >
+        Browse More Restaurants
+      </a>
+    </div>
+  </form>
+</div>
+{% endblock %}

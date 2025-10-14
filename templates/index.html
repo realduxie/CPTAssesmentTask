@@ -1,694 +1,532 @@
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TableFinder - Restaurant Booking Platform</title>
+{% extends 'layout.html' %} {% block title %}Home - Table Finder{% endblock %}
+{% block content %}
+<!-- Hero Section with Background Image -->
+<section
+  style="
+    position: relative;
+    height: calc(100vh - 5rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin: -6rem -2rem 3rem;
+    padding: 6rem 2rem 3rem;
+  "
+>
+  <!-- Gradient Overlay -->
+  <div
+    style="
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        rgba(255, 107, 107, 0.9) 0%,
+        rgba(78, 205, 196, 0.9) 100%
+      );
+      z-index: 1;
+    "
+  ></div>
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Background Image -->
+  <div style="position: absolute; inset: 0; z-index: 0">
+    <img
+      src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&h=1080&fit=crop"
+      alt="Restaurant dining"
+      style="width: 100%; height: 100%; object-fit: cover"
+      onerror="this.style.display='none'"
+    />
+  </div>
 
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <!-- Hero Content -->
+  <div
+    style="
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      max-width: 64rem;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    "
+  >
+    <h1 style="margin-bottom: 1.5rem; color: white">
+      <span
+        style="
+          display: block;
+          font-size: 5rem;
+          font-weight: 900;
+          margin-bottom: 1rem;
+          letter-spacing: -0.05em;
+        "
+      >
+        DISCOVER
+      </span>
+      <span
+        style="
+          display: block;
+          font-size: 3.5rem;
+          font-weight: 300;
+          opacity: 0.95;
+        "
+      >
+        Your Next Amazing Meal
+      </span>
+    </h1>
 
-    <!-- Your Custom Styles -->
-    <link rel="stylesheet" href="css/styles.css" />
+    <p
+      style="
+        font-size: 1.5rem;
+        color: rgba(255, 255, 255, 0.95);
+        margin-bottom: 3rem;
+        max-width: 42rem;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.8;
+      "
+    >
+      Connect with extraordinary dining experiences. From intimate bistros to
+      award-winning restaurants.
+    </p>
 
-    <!-- Tailwind Config for Coral/Teal Colors -->
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              coral: "#FF6B6B",
-              teal: "#4ECDC4",
-            },
-          },
-        },
-      };
-    </script>
-
-    <style>
-      .nav-btn.active {
-        background: linear-gradient(to right, #ff6b6b, #4ecdc4);
-        color: white;
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-      }
-      .page-content.hidden {
-        display: none;
-      }
-    </style>
-  </head>
-  <body class="min-h-screen bg-gradient-to-br from-[#F7F9FC] to-[#E8F4F8]">
-    <!-- Header Navigation -->
-    <header
-      class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-lg border-b border-gray-100 z-50"
+    <!-- Search Bar -->
+    <div
+      style="
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+        border-radius: 1.5rem;
+        padding: 1.5rem;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        max-width: 48rem;
+        margin: 0 auto;
+      "
     >
       <div
-        class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between"
+        style="
+          display: grid;
+          grid-template-columns: 1fr 1fr auto;
+          gap: 1rem;
+          align-items: center;
+        "
       >
-        <!-- Logo -->
-        <div class="flex items-center">
-          <h1
-            class="text-2xl font-black bg-gradient-to-r from-[#FF6B6B] to-[#4ECDC4] bg-clip-text text-transparent"
+        <div style="position: relative">
+          <svg
+            style="
+              position: absolute;
+              left: 1rem;
+              top: 50%;
+              transform: translateY(-50%);
+              color: #9ca3af;
+              width: 1.25rem;
+              height: 1.25rem;
+            "
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
           >
-            TABLEFINDER
-          </h1>
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="m21 21-6-6m2-5a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"
+            />
+          </svg>
+          <input
+            type="text"
+            placeholder="Restaurant name or cuisine"
+            style="
+              width: 100%;
+              padding: 1rem 1rem 1rem 3rem;
+              border: 2px solid #e5e7eb;
+              border-radius: 1rem;
+              font-size: 1rem;
+              outline: none;
+              background: white;
+            "
+            onfocus="this.style.borderColor='#4ecdc4'"
+            onblur="this.style.borderColor='#e5e7eb'"
+          />
         </div>
-
-        <!-- Navigation Links -->
-        <nav class="flex items-center space-x-8">
-          <button
-            onclick="showPage('home')"
-            class="nav-btn px-4 py-2 rounded-lg transition-all duration-200 font-black text-gray-700 hover:text-[#FF6B6B] hover:bg-gray-100"
-            data-page="home"
+        <div style="position: relative">
+          <svg
+            style="
+              position: absolute;
+              left: 1rem;
+              top: 50%;
+              transform: translateY(-50%);
+              color: #9ca3af;
+              width: 1.25rem;
+              height: 1.25rem;
+            "
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
           >
-            HOME
-          </button>
-          <button
-            onclick="showPage('browse')"
-            class="nav-btn px-4 py-2 rounded-lg transition-all duration-200 font-black text-gray-700 hover:text-[#FF6B6B] hover:bg-gray-100"
-            data-page="browse"
-          >
-            BROWSE
-          </button>
-          <button
-            onclick="showPage('booking')"
-            class="nav-btn px-4 py-2 rounded-lg transition-all duration-200 font-black text-gray-700 hover:text-[#FF6B6B] hover:bg-gray-100"
-            data-page="booking"
-          >
-            BOOKING
-          </button>
-          <button
-            onclick="showPage('login')"
-            class="nav-btn px-4 py-2 rounded-lg transition-all duration-200 font-black text-gray-700 hover:text-[#FF6B6B] hover:bg-gray-100"
-            data-page="login"
-          >
-            LOGIN
-          </button>
-        </nav>
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+            />
+          </svg>
+          <input
+            type="text"
+            placeholder="Location"
+            style="
+              width: 100%;
+              padding: 1rem 1rem 1rem 3rem;
+              border: 2px solid #e5e7eb;
+              border-radius: 1rem;
+              font-size: 1rem;
+              outline: none;
+              background: white;
+            "
+            onfocus="this.style.borderColor='#4ecdc4'"
+            onblur="this.style.borderColor='#e5e7eb'"
+          />
+        </div>
+        <a
+          href="{{ url_for('browse') }}"
+          style="
+            background: linear-gradient(90deg, #ff6b6b 0%, #4ecdc4 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 1rem;
+            font-weight: 900;
+            font-size: 1.125rem;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+          "
+          onmouseover="this.style.transform='scale(1.05)'"
+          onmouseout="this.style.transform='scale(1)'"
+        >
+          SEARCH
+        </a>
       </div>
-    </header>
-
-    <!-- Main Content Area -->
-    <main class="pt-20">
-      <!-- Home Page -->
-      <div id="home-page" class="page-content">
-        <!-- HOME PAGE CONTENT GOES HERE -->
-<!-- Hero Section -->
-<section class="relative h-screen flex items-center justify-center overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-r from-[#FF6B6B] via-[#4ECDC4] to-[#FF6B6B] opacity-90"></div>
-    <div class="absolute inset-0">
-        <img 
-            src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&h=1080&fit=crop"
-            alt="Restaurant dining" 
-            class="w-full h-full object-cover"
-            onerror="handleImageError(this)"
-        />
     </div>
-    
-    <div class="relative z-10 text-center max-w-4xl mx-auto px-6">
-        <h1 class="mb-6 text-white">
-            <span class="block text-7xl font-black mb-4 tracking-tight">
-                DISCOVER
-            </span>
-            <span class="block text-5xl font-light opacity-90">
-                Your Next Amazing Meal
-            </span>
-        </h1>
-        
-        <p class="text-xl text-white/90 mb-12 max-w-2xl mx-auto leading-relaxed">
-            Connect with extraordinary dining experiences. From intimate bistros to award-winning restaurants.
-        </p>
-
-        <!-- Search Bar -->
-        <div class="bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl max-w-3xl mx-auto">
-            <div class="flex flex-col md:flex-row gap-4">
-                <div class="flex-1 relative">
-                    <i data-lucide="search" class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5"></i>
-                    <input 
-                        type="text" 
-                        placeholder="Restaurant name or cuisine"
-                        class="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#4ECDC4] bg-white"
-                    />
-                </div>
-                <div class="flex-1 relative">
-                    <i data-lucide="map-pin" class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5"></i>
-                    <input 
-                        type="text" 
-                        placeholder="Location"
-                        class="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#4ECDC4] bg-white"
-                    />
-                </div>
-                <button class="bg-gradient-to-r from-[#FF6B6B] to-[#4ECDC4] text-white px-8 py-4 rounded-xl font-black text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-200">
-                    SEARCH
-                </button>
-            </div>
-        </div>
-    </div>
+  </div>
 </section>
 
 <!-- Featured Restaurants Section -->
-<section class="py-20 px-6">
-    <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-16">
-            <h2 class="text-5xl font-black text-gray-900 mb-4">FEATURED RESTAURANTS</h2>
-            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                Handpicked selections from the finest dining establishments in your city
-            </p>
+<section style="padding: 3rem 0">
+  <div style="text-align: center; margin-bottom: 3rem">
+    <h2
+      style="
+        font-size: 4rem;
+        font-weight: 900;
+        color: #2c3e50;
+        margin-bottom: 1rem;
+      "
+    >
+      FEATURED RESTAURANTS
+    </h2>
+    <p
+      style="
+        font-size: 1.5rem;
+        color: #45b7d1;
+        max-width: 42rem;
+        margin: 0 auto;
+      "
+    >
+      Handpicked selections from the finest dining establishments
+    </p>
+  </div>
+
+  <div class="restaurants-grid">
+    <!-- Loop through restaurants from database -->
+    {% for restaurant in restaurants %}
+    <div class="restaurant-card" style="position: relative">
+      <!-- Category badge -->
+      <div
+        style="
+          position: absolute;
+          top: -0.5rem;
+          right: 1.5rem;
+          background: #4ecdc4;
+          color: white;
+          padding: 0.5rem 1rem;
+          border-radius: 9999px;
+          font-weight: 900;
+          font-size: 0.875rem;
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+          z-index: 10;
+        "
+      >
+        {% if restaurant.Category_Name %} {{ restaurant.Category_Name }} {% else
+        %} Restaurant {% endif %}
+      </div>
+
+      <!-- Restaurant emoji/icon -->
+      <div style="font-size: 4rem; text-align: center; margin-bottom: 1rem">
+        {% if restaurant.Category_Name == 'Italian' %} 🍝 {% elif
+        restaurant.Category_Name == 'Japanese' %} 🍱 {% elif
+        restaurant.Category_Name == 'Modern Australian' %} 🦘 {% else %} 🍽️ {%
+        endif %}
+      </div>
+
+      <!-- Restaurant name -->
+      <h3 style="margin-bottom: 1rem">{{ restaurant.Restaurant_Name }}</h3>
+
+      <!-- Address -->
+      <p style="margin-bottom: 0.75rem">
+        <strong>📍</strong> {{ restaurant.Address }}
+      </p>
+
+      <!-- Contact info -->
+      <p style="margin-bottom: 0.75rem">
+        <strong>📞</strong> {{ restaurant.Phone_Number }}
+      </p>
+
+      <!-- Hours -->
+      <p style="margin-bottom: 0.75rem">
+        <strong>🕐</strong> {{ restaurant.Opening_Time }} - {{
+        restaurant.Closing_Time }}
+      </p>
+
+      <!-- Rating and Capacity -->
+      <div
+        style="
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin: 1rem 0;
+          padding-top: 1rem;
+          border-top: 2px solid #f3f4f6;
+        "
+      >
+        <div style="display: flex; align-items: center; gap: 0.25rem">
+          <svg
+            style="
+              width: 1rem;
+              height: 1rem;
+              color: #fbbf24;
+              fill: currentColor;
+            "
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+            />
+          </svg>
+          <svg
+            style="
+              width: 1rem;
+              height: 1rem;
+              color: #fbbf24;
+              fill: currentColor;
+            "
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+            />
+          </svg>
+          <svg
+            style="
+              width: 1rem;
+              height: 1rem;
+              color: #fbbf24;
+              fill: currentColor;
+            "
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+            />
+          </svg>
+          <svg
+            style="
+              width: 1rem;
+              height: 1rem;
+              color: #fbbf24;
+              fill: currentColor;
+            "
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+            />
+          </svg>
+          <svg
+            style="
+              width: 1rem;
+              height: 1rem;
+              color: #e5e7eb;
+              fill: currentColor;
+            "
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+            />
+          </svg>
+          <span style="font-weight: 900; color: #2c3e50; margin-left: 0.25rem"
+            >4.5</span
+          >
         </div>
+        <span style="color: #10b981; font-weight: 900; font-size: 0.875rem"
+          >Tables Available</span
+        >
+      </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <!-- Restaurant 1 -->
-            <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 overflow-hidden">
-                <div class="relative h-48">
-                    <img 
-                        src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400&h=300&fit=crop"
-                        alt="Bistro Moderne" 
-                        class="w-full h-full object-cover"
-                        onerror="handleImageError(this)"
-                    />
-                    <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
-                        <span class="text-sm font-black text-gray-900">$$$$</span>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-black text-gray-900 mb-2">Bistro Moderne</h3>
-                    <p class="text-gray-600 mb-3">French Contemporary</p>
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center space-x-1">
-                            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-current"></i>
-                            <span class="font-bold text-gray-900">4.8</span>
-                        </div>
-                        <div class="flex items-center text-gray-500 text-sm">
-                            <i data-lucide="map-pin" class="w-4 h-4 mr-1"></i>
-                            Downtown
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <!-- Capacity -->
+      <p style="margin-bottom: 1.5rem; font-size: 0.875rem; color: #6b7280">
+        <strong>👥 Capacity:</strong> {{ restaurant.Capacity }} people
+      </p>
 
-            <!-- Restaurant 2 -->
-            <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 overflow-hidden">
-                <div class="relative h-48">
-                    <img 
-                        src="https://images.unsplash.com/photo-1579952363873-27d3bfad9c0d?w=400&h=300&fit=crop"
-                        alt="Sakura Garden" 
-                        class="w-full h-full object-cover"
-                        onerror="handleImageError(this)"
-                    />
-                    <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
-                        <span class="text-sm font-black text-gray-900">$$$</span>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-black text-gray-900 mb-2">Sakura Garden</h3>
-                    <p class="text-gray-600 mb-3">Japanese</p>
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center space-x-1">
-                            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-current"></i>
-                            <span class="font-bold text-gray-900">4.9</span>
-                        </div>
-                        <div class="flex items-center text-gray-500 text-sm">
-                            <i data-lucide="map-pin" class="w-4 h-4 mr-1"></i>
-                            Midtown
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Restaurant 3 -->
-            <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 overflow-hidden">
-                <div class="relative h-48">
-                    <img 
-                        src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=400&h=300&fit=crop"
-                        alt="Coastal Breeze" 
-                        class="w-full h-full object-cover"
-                        onerror="handleImageError(this)"
-                    />
-                    <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
-                        <span class="text-sm font-black text-gray-900">$$$$</span>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-black text-gray-900 mb-2">Coastal Breeze</h3>
-                    <p class="text-gray-600 mb-3">Seafood</p>
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center space-x-1">
-                            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-current"></i>
-                            <span class="font-bold text-gray-900">4.7</span>
-                        </div>
-                        <div class="flex items-center text-gray-500 text-sm">
-                            <i data-lucide="map-pin" class="w-4 h-4 mr-1"></i>
-                            Marina
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Restaurant 4 -->
-            <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 overflow-hidden">
-                <div class="relative h-48">
-                    <img 
-                        src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop"
-                        alt="Verde Kitchen" 
-                        class="w-full h-full object-cover"
-                        onerror="handleImageError(this)"
-                    />
-                    <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
-                        <span class="text-sm font-black text-gray-900">$$</span>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-black text-gray-900 mb-2">Verde Kitchen</h3>
-                    <p class="text-gray-600 mb-3">Plant-Based</p>
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center space-x-1">
-                            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-current"></i>
-                            <span class="font-bold text-gray-900">4.6</span>
-                        </div>
-                        <div class="flex items-center text-gray-500 text-sm">
-                            <i data-lucide="map-pin" class="w-4 h-4 mr-1"></i>
-                            Arts District
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+      <!-- Action buttons -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem">
+        <a
+          href="{{ url_for('booking') }}"
+          class="btn btn-primary"
+          style="text-align: center; padding: 0.75rem 1rem; font-size: 0.875rem"
+        >
+          BOOK NOW
+        </a>
+        <button
+          class="btn btn-secondary"
+          style="padding: 0.75rem 1rem; font-size: 0.875rem"
+        >
+          VIEW MENU
+        </button>
+      </div>
     </div>
+    {% endfor %}
+  </div>
+
+  <!-- View All Button -->
+  <div style="text-align: center; margin-top: 3rem">
+    <a
+      href="{{ url_for('browse') }}"
+      class="btn btn-primary"
+      style="font-size: 1.25rem; padding: 1.25rem 3rem"
+    >
+      VIEW ALL RESTAURANTS
+    </a>
+  </div>
 </section>
 
-<!-- Cuisine Types Section -->
-<section class="py-20 px-6 bg-white">
-    <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-16">
-            <h2 class="text-5xl font-black text-gray-900 mb-4">EXPLORE BY CUISINE</h2>
-            <p class="text-xl text-gray-600">
-                Discover restaurants by your favorite cuisine types
-            </p>
-        </div>
-
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-            <div class="text-center group cursor-pointer">
-                <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-r from-[#FF6B6B] to-[#4ECDC4] rounded-full flex items-center justify-center group-hover:shadow-lg transform group-hover:scale-105 transition-all duration-200">
-                    <span class="text-2xl">🍝</span>
-                </div>
-                <h3 class="font-black text-gray-900">Italian</h3>
-                <p class="text-sm text-gray-500">245 restaurants</p>
-            </div>
-
-            <div class="text-center group cursor-pointer">
-                <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-r from-[#FF6B6B] to-[#4ECDC4] rounded-full flex items-center justify-center group-hover:shadow-lg transform group-hover:scale-105 transition-all duration-200">
-                    <span class="text-2xl">🍜</span>
-                </div>
-                <h3 class="font-black text-gray-900">Asian</h3>
-                <p class="text-sm text-gray-500">189 restaurants</p>
-            </div>
-
-            <div class="text-center group cursor-pointer">
-                <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-r from-[#FF6B6B] to-[#4ECDC4] rounded-full flex items-center justify-center group-hover:shadow-lg transform group-hover:scale-105 transition-all duration-200">
-                    <span class="text-2xl">🍔</span>
-                </div>
-                <h3 class="font-black text-gray-900">American</h3>
-                <p class="text-sm text-gray-500">156 restaurants</p>
-            </div>
-
-            <div class="text-center group cursor-pointer">
-                <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-r from-[#FF6B6B] to-[#4ECDC4] rounded-full flex items-center justify-center group-hover:shadow-lg transform group-hover:scale-105 transition-all duration-200">
-                    <span class="text-2xl">🥙</span>
-                </div>
-                <h3 class="font-black text-gray-900">Mediterranean</h3>
-                <p class="text-sm text-gray-500">98 restaurants</p>
-            </div>
-
-            <div class="text-center group cursor-pointer">
-                <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-r from-[#FF6B6B] to-[#4ECDC4] rounded-full flex items-center justify-center group-hover:shadow-lg transform group-hover:scale-105 transition-all duration-200">
-                    <span class="text-2xl">🌮</span>
-                </div>
-                <h3 class="font-black text-gray-900">Mexican</h3>
-                <p class="text-sm text-gray-500">87 restaurants</p>
-            </div>
-
-            <div class="text-center group cursor-pointer">
-                <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-r from-[#FF6B6B] to-[#4ECDC4] rounded-full flex items-center justify-center group-hover:shadow-lg transform group-hover:scale-105 transition-all duration-200">
-                    <span class="text-2xl">🥐</span>
-                </div>
-                <h3 class="font-black text-gray-900">French</h3>
-                <p class="text-sm text-gray-500">76 restaurants</p>
-            </div>
-        </div>
+<!-- Stats Section -->
+<div class="stats-section">
+  <div class="stats-container">
+    <div class="stat-item">
+      <div class="stat-number stat-primary">150+</div>
+      <div class="stat-label">Restaurants</div>
     </div>
+    <div class="stat-item">
+      <div class="stat-number stat-secondary">50K+</div>
+      <div class="stat-label">Happy Diners</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number stat-tertiary">4.8</div>
+      <div class="stat-label">Average Rating</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number stat-primary">24/7</div>
+      <div class="stat-label">Support</div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA Section -->
+<section
+  style="
+    padding: 5rem 0;
+    background: linear-gradient(90deg, #ff6b6b 0%, #4ecdc4 100%);
+    margin: 3rem -2rem 0;
+    position: relative;
+    overflow: hidden;
+  "
+>
+  <!-- Decorative Elements -->
+  <div
+    style="
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 12rem;
+      height: 12rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      transform: translate(-6rem, -6rem);
+    "
+  ></div>
+  <div
+    style="
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 16rem;
+      height: 16rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      transform: translate(8rem, 8rem);
+    "
+  ></div>
+
+  <div
+    style="
+      max-width: 64rem;
+      margin: 0 auto;
+      text-align: center;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 10;
+    "
+  >
+    <h2
+      style="
+        font-size: 4rem;
+        font-weight: 900;
+        color: white;
+        margin-bottom: 1.5rem;
+      "
+    >
+      Ready to Dine?
+    </h2>
+    <p
+      style="
+        font-size: 1.5rem;
+        color: rgba(255, 255, 255, 0.95);
+        margin-bottom: 2.5rem;
+        line-height: 1.6;
+      "
+    >
+      Join thousands of food lovers discovering their next favorite restaurant
+    </p>
+    <a
+      href="{{ url_for('browse') }}"
+      style="
+        display: inline-block;
+        background: white;
+        color: #ff6b6b;
+        padding: 1.25rem 3rem;
+        border-radius: 9999px;
+        font-weight: 900;
+        font-size: 1.25rem;
+        text-decoration: none;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        transition: all 0.2s ease;
+      "
+      onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 25px 50px -12px rgba(0, 0, 0, 0.6)'"
+      onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 25px 50px -12px rgba(0, 0, 0, 0.5)'"
+    >
+      EXPLORE RESTAURANTS
+    </a>
+  </div>
 </section>
 
-<!-- Browse Page -->
-        <div id="browse-page" class="page-content hidden">
-            <!-- BROWSE PAGE CONTENT GOES HERE -->
-        </div>
-<!-- Browse Page Header -->
-<div class="bg-white shadow-sm border-b px-6 py-8">
-    <div class="max-w-7xl mx-auto">
-        <h1 class="text-4xl font-black text-gray-900 mb-4">BROWSE RESTAURANTS</h1>
-        <p class="text-gray-600 text-lg">Discover amazing dining experiences in your city</p>
-    </div>
-</div>
-
-<!-- Search and Filters -->
-<div class="bg-gray-50 px-6 py-8">
-    <div class="max-w-7xl mx-auto">
-        <div class="flex flex-col lg:flex-row gap-6">
-            <!-- Search Bar -->
-            <div class="flex-1 relative">
-                <i data-lucide="search" class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5"></i>
-                <input 
-                    type="text" 
-                    placeholder="Search restaurants..."
-                    class="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#4ECDC4] bg-white"
-                />
-            </div>
-            
-            <!-- Filters -->
-            <div class="flex gap-4">
-                <select class="px-4 py-4 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#4ECDC4] bg-white">
-                    <option>All Cuisines</option>
-                    <option>Italian</option>
-                    <option>Asian</option>
-                    <option>American</option>
-                </select>
-                
-                <select class="px-4 py-4 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#4ECDC4] bg-white">
-                    <option>Price Range</option>
-                    <option>$ - Budget</option>
-                    <option>$$ - Moderate</option>
-                    <option>$$$ - Expensive</option>
-                    <option>$$$$ - Very Expensive</option>
-                </select>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Restaurant Grid -->
-<div class="px-6 py-12">
-    <div class="max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Sample Restaurant Cards -->
-            <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
-                <div class="relative h-48">
-                    <img 
-                        src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400&h=300&fit=crop"
-                        alt="Restaurant" 
-                        class="w-full h-full object-cover"
-                        onerror="handleImageError(this)"
-                    />
-                    <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
-                        <span class="text-sm font-black text-gray-900">$$$</span>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-black text-gray-900 mb-2">Elegant Bistro</h3>
-                    <p class="text-gray-600 mb-3">French Cuisine</p>
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="flex items-center space-x-1">
-                            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-current"></i>
-                            <span class="font-bold text-gray-900">4.7</span>
-                        </div>
-                        <div class="flex items-center text-gray-500 text-sm">
-                            <i data-lucide="map-pin" class="w-4 h-4 mr-1"></i>
-                            Downtown
-                        </div>
-                    </div>
-                    <button class="w-full bg-gradient-to-r from-[#FF6B6B] to-[#4ECDC4] text-white py-3 rounded-xl font-black hover:shadow-lg transform hover:scale-105 transition-all duration-200">
-                        VIEW DETAILS
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Repeat similar cards... -->
-            <!-- Add 5 more similar cards with different content -->
-        </div>
-    </div>
-</div>
-
-      <!-- Booking Page -->
-      <div id="booking-page" class="page-content hidden">
-        <!-- BOOKING PAGE CONTENT GOES HERE -->
-<!-- Booking Page Layout -->
-<div class="flex">
-    <!-- Restaurant Info Sidebar -->
-    <div class="w-96 bg-white shadow-2xl">
-        <div class="sticky top-20">
-            <div class="relative h-64">
-                <img 
-                    src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400&h=300&fit=crop"
-                    alt="Restaurant" 
-                    class="w-full h-full object-cover"
-                    onerror="handleImageError(this)"
-                />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                <div class="absolute bottom-4 left-4 right-4 text-white">
-                    <h2 class="text-2xl font-black mb-1">Bistro Moderne</h2>
-                    <p class="text-sm opacity-90">French Contemporary</p>
-                </div>
-            </div>
-            
-            <div class="p-6 space-y-4">
-                <div class="flex items-center space-x-3">
-                    <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-current"></i>
-                    <span class="font-bold">4.8 Rating</span>
-                </div>
-                
-                <div class="flex items-center space-x-3">
-                    <i data-lucide="map-pin" class="w-5 h-5 text-gray-400"></i>
-                    <span>123 Main St, Downtown</span>
-                </div>
-                
-                <div class="flex items-center space-x-3">
-                    <i data-lucide="clock" class="w-5 h-5 text-gray-400"></i>
-                    <span>5:00 PM - 11:00 PM</span>
-                </div>
-                
-                <div class="flex items-center space-x-3">
-                    <span class="text-2xl">💰</span>
-                    <span class="font-black">$$$$</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Booking Form -->
-    <div class="flex-1 p-12">
-        <div class="max-w-2xl mx-auto">
-            <div class="text-center mb-12">
-                <h1 class="text-4xl font-black text-gray-900 mb-2">MAKE A RESERVATION</h1>
-                <p class="text-gray-600">Book your table at Bistro Moderne</p>
-            </div>
-
-            <!-- Booking Form -->
-            <div class="bg-white rounded-2xl shadow-xl p-8">
-                <form class="space-y-6">
-                    <!-- Date Selection -->
-                    <div>
-                        <label class="block mb-2 text-gray-700 font-black">DATE</label>
-                        <input 
-                            type="date" 
-                            class="w-full px-4 py-4 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#4ECDC4] bg-white"
-                        />
-                    </div>
-
-                    <!-- Time Selection -->
-                    <div>
-                        <label class="block mb-2 text-gray-700 font-black">TIME</label>
-                        <select class="w-full px-4 py-4 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#4ECDC4] bg-white">
-                            <option>5:00 PM</option>
-                            <option>5:30 PM</option>
-                            <option>6:00 PM</option>
-                            <option>6:30 PM</option>
-                            <option>7:00 PM</option>
-                            <option>7:30 PM</option>
-                            <option>8:00 PM</option>
-                            <option>8:30 PM</option>
-                            <option>9:00 PM</option>
-                        </select>
-                    </div>
-
-                    <!-- Party Size -->
-                    <div>
-                        <label class="block mb-2 text-gray-700 font-black">PARTY SIZE</label>
-                        <select class="w-full px-4 py-4 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#4ECDC4] bg-white">
-                            <option>1 person</option>
-                            <option>2 people</option>
-                            <option>3 people</option>
-                            <option>4 people</option>
-                            <option>5 people</option>
-                            <option>6 people</option>
-                            <option>7+ people</option>
-                        </select>
-                    </div>
-
-                    <!-- Special Requests -->
-                    <div>
-                        <label class="block mb-2 text-gray-700 font-black">SPECIAL REQUESTS</label>
-                        <textarea 
-                            placeholder="Birthday celebration, dietary restrictions, etc."
-                            rows="3"
-                            class="w-full px-4 py-4 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#4ECDC4] bg-white resize-none"
-                        ></textarea>
-                    </div>
-
-                    <!-- Contact Information -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block mb-2 text-gray-700 font-black">NAME</label>
-                            <input 
-                                type="text" 
-                                placeholder="Your full name"
-                                class="w-full px-4 py-4 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#4ECDC4] bg-white"
-                            />
-                        </div>
-                        <div>
-                            <label class="block mb-2 text-gray-700 font-black">PHONE</label>
-                            <input 
-                                type="tel" 
-                                placeholder="Your phone number"
-                                class="w-full px-4 py-4 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#4ECDC4] bg-white"
-                            />
-                        </div>
-                    </div>
-
-                    <!-- Submit Button -->
-                    <button 
-                        type="submit" 
-                        class="w-full bg-gradient-to-r from-[#FF6B6B] to-[#4ECDC4] text-white py-4 rounded-xl font-black text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-200"
-                    >
-                        CONFIRM RESERVATION
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-      </div>
-      <!-- Login Page -->
-      <div id="login-page" class="page-content hidden">
-        <!-- LOGIN PAGE CONTENT GOES HERE -->
-<!-- Left Side - Login Form -->
-<div class="flex-1 flex items-center justify-center px-6 py-12">
-    <div class="w-full max-w-md">
-        <!-- Logo -->
-        <div class="text-center mb-12">
-            <h1 class="text-4xl font-black bg-gradient-to-r from-[#FF6B6B] to-[#4ECDC4] bg-clip-text text-transparent mb-2">
-                TABLEFINDER
-            </h1>
-            <p class="text-gray-600">Your culinary journey starts here</p>
-        </div>
-
-        <!-- Toggle Buttons -->
-        <div class="flex mb-8 bg-gray-100 rounded-2xl p-1">
-            <button 
-                id="signin-btn"
-                onclick="toggleLoginMode(false)"
-                class="flex-1 py-3 px-4 rounded-xl transition-all duration-200 font-black bg-gradient-to-r from-[#FF6B6B] to-[#4ECDC4] text-white shadow-lg"
-            >
-                SIGN IN
-            </button>
-            <button 
-                id="signup-btn"
-                onclick="toggleLoginMode(true)"
-                class="flex-1 py-3 px-4 rounded-xl transition-all duration-200 font-black text-gray-600"
-            >
-                SIGN UP
-            </button>
-        </div>
-
-        <!-- Form -->
-        <form class="space-y-6">
-            <!-- Sign Up Fields (Hidden by default) -->
-            <div id="signup-fields" class="hidden">
-                <label class="block mb-2 text-gray-700 font-black">FULL NAME</label>
-                <div class="relative">
-                    <input 
-                        type="text" 
-                        placeholder="Enter your full name"
-                        class="w-full pl-4 pr-4 py-4 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#4ECDC4] bg-white"
-                    />
-                </div>
-            </div>
-
-            <!-- Email Field -->
-            <div>
-                <label class="block mb-2 text-gray-700 font-black">EMAIL</label>
-                <div class="relative">
-                    <i data-lucide="mail" class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5"></i>
-                    <input 
-                        type="email" 
-                        placeholder="Enter your email"
-                        class="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#4ECDC4] bg-white"
-                    />
-                </div>
-            </div>
-
-            <!-- Password Field -->
-            <div>
-                <label class="block mb-2 text-gray-700 font-black">PASSWORD</label>
-                <div class="relative">
-                    <i data-lucide="lock" class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5"></i>
-                    <input 
-                        id="password-input"
-                        type="password" 
-                        placeholder="Enter your password"
-                        class="w-full pl-12 pr-12 py-4 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#4ECDC4] bg-white"
-                    />
-                    <button 
-                        type="button"
-                        onclick="togglePassword()"
-                        class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
-                    >
-                        <i id="eye-icon" data-lucide="eye" class="w-5 h-5"></i>
-                        <i id="eye-off-icon" data-lucide="eye-off" class="w-5 h-5 hidden"></i>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Submit Button -->
-            <button 
-                id="submit-btn"
-                type="submit" 
-                class="w-full bg-gradient-to-r from-[#FF6B6B] to-[#4ECDC4] text-white py-4 rounded-xl font-black text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center justify-center space-x-2"
-            >
-                <span>SIGN IN</span>
-                <i data-lucide="arrow-right" class="w-5 h-5"></i>
-            </button>
-        </form>
-
-        <!-- Footer Links -->
-        <div class="mt-8 text-center">
-            <a href="#" class="text-gray-500 hover:text-[#FF6B6B] transition-colors">
-                Forgot your password?
-            </a>
-        </div>
-    </div>
-</div>
-
-<!-- Right Side - Image -->
-<div class="hidden lg:flex flex-1 relative">
-    <img 
-        src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&h=1200&fit=crop"
-        alt="Restaurant interior" 
-        class="w-full h-full object-cover"
-        onerror="handleImageError(this)"
-    />
-    <div class="absolute inset-0 bg-gradient-to-r from-[#FF6B6B]/20 to-[#4ECDC4]/20"></div>
-</div>
-      </div>
-    </main>
-
-    <!-- JavaScript -->
-    <script src="js/app.js"></script>
-
-    <!-- Initialize Lucide Icons -->
-    <script>
-      lucide.createIcons();
-    </script>
-  </body>
-</html>
+<style>
+  @media (max-width: 768px) {
+    section h1 span:first-child {
+      font-size: 3rem !important;
+    }
+    section h1 span:last-child {
+      font-size: 2rem !important;
+    }
+    section > div > div {
+      grid-template-columns: 1fr !important;
+    }
+  }
+</style>
+{% endblock %}
