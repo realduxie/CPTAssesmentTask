@@ -129,7 +129,7 @@ In my second TableFinder wireframe I went for a more experimental/alternate desi
 # Algorithm & Test Cases
 
 ## Login Algorithm
-![Login Algorithm](<Screen Shot 2025-08-13 at 13.44.30.png>)
+![Login Algorithm](<ScreenShots/Screen Shot 2025-08-13 at 13.44.30.png>)
 
 ## Test Cases
 
@@ -194,5 +194,3 @@ In my second TableFinder wireframe I went for a more experimental/alternate desi
 - Worked on login page functionality and authentication logic.  
 - Integrated user login with customer data to display personalized bookings.  
 - Implemented error handling and improved user feedback on failed actions.
-
-Testing if the repository works
