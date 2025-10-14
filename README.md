@@ -194,3 +194,5 @@ In my second TableFinder wireframe I went for a more experimental/alternate desi
 - Worked on login page functionality and authentication logic.  
 - Integrated user login with customer data to display personalized bookings.  
 - Implemented error handling and improved user feedback on failed actions.
+
+Test
