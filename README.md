@@ -164,7 +164,7 @@ In my second TableFinder wireframe I went for a more experimental/alternate desi
 **Pass/Fail:** To be filled after execution.
 **Priority:** High
 
-# Logbook Notes
+# Logbook
 
 ## Week 5 
 - Set up the project folder structure and installed Flask and required dependencies.  
@@ -194,3 +194,30 @@ In my second TableFinder wireframe I went for a more experimental/alternate desi
 - Worked on login page functionality and authentication logic.  
 - Integrated user login with customer data to display personalized bookings.  
 - Implemented error handling and improved user feedback on failed actions.
+- Added service worker.
+
+# Additional Acknowledgements & Instructions
+
+## Notes
+
+1. Service Worker correct and done.
+2. Any booking details inputted to front end will be sent to back end.
+3. Filtering works on the front end using the data from the sql back end.
+
+## Instructions
+
+(Must have pip & python installed on computer, with port 5100 open)
+1. Download repository "CPTAssesmentTask" and extract files.
+2. Import files to visual studio code.
+3. Setup flask instance.
+4. Run command "python main.py" in terminal.
+5. Open up the 5100 port in browser.
+6. Good to go :)
+
+
+## Acknowledgements
+
+1. Ai LLM formatted documentation (not client meetings, just the readme).
+2. Ai LLM generated all sql data.
+3. Ai LLM troubleshooted service worker errors.
+4. Colour scheme borrowed from a website.
